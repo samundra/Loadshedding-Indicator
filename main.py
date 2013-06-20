@@ -96,14 +96,14 @@ class LoadShedding:
                 
                 for dt in day:
 
-                    dayName = str(dt.getAttribute('name')).lower()
+                    dayName = dt.getAttribute('name').lower()
                     
                     now = datetime.datetime.now()
-                    currDay = str(now.strftime("%A")).lower()
+                    currDay = now.strftime("%A").lower()
 
                     if(currDay==dayName):
-                        self.routines.append(str(dt.childNodes[1].firstChild.nodeValue))
-                        self.routines.append(str(dt.childNodes[3].firstChild.nodeValue))
+                        self.routines.append(dt.childNodes[1].firstChild.nodeValue)
+                        self.routines.append(dt.childNodes[3].firstChild.nodeValue)
                         return True 
         return False
                 
