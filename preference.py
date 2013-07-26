@@ -34,11 +34,13 @@ class PreferenceWindow(Gtk.Window):
         if not Notify.init("nepal-loadshedding"):
             sys.exit (1)
             
-        self.configs = self.parse_configs()
+        self.configs = self.parse_configs() 
         
         Gtk.Window.__init__(self, title="preference ...")
+        self.set_resizable(False)
+        self.set_position(Gtk.WindowPosition.CENTER)
 
-        table = Gtk.Table(3, 2, True)
+        table = Gtk.Table(2, 2, True)
         self.add(table)
 
         label = Gtk.Label('Group Number :')
