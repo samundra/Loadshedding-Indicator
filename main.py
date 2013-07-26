@@ -8,6 +8,7 @@ from gi.overrides.Gtk import Widget
 from nepali_calendar import NepaliDateConverter
 from gi.repository import AppIndicator3 as AppIndicator
 from preference import PreferenceWindow
+from converter import ConverterWindow
 import datetime
 import json
 from xml.dom.minidom import parseString
@@ -23,23 +24,46 @@ class LoadShedding:
                                               AppIndicator.IndicatorCategory.APPLICATION_STATUS)
         self.ind.set_status(AppIndicator.IndicatorStatus.ACTIVE)
         self.ind.set_attention_icon("indicator-messages-new")
+        #self.ind.connect("scroll-event", self.scroll)
+        self.rebuild_menu()
+    
+    def clear_menu_items(self):
+        m_childrens = self.menu.get_children()
+        ppos = 0;
+        for c in m_childrens:
+            ppos+=1
+            if(ppos in [5,6,7]):
+#                print ppos
+ #               print c
+                self.menu.remove(c)
+                c.destroy()
         
-        self.reload_menu();
         # have to give indicator a menu
-    def reload_menu(self):
-        
-        self.menu = Gtk.Menu()
+#     def scroll(self,aai,ind,steps):
+#         print "hello"
 
+    def rebuild_menu(self):
+        self.menu = Gtk.Menu()
+        self.clear_menu_items()
+        
         # you can use this menu item for experimenting
         item = Gtk.MenuItem()
         item.set_label("Preference")
         item.connect("activate", self.handler_menu_preference)
         item.show()
         self.menu.append(item)
+        
+        cdate = Gtk.MenuItem()
+        cdate.set_label("Convert Date")
+        cdate.connect("activate", self.window_convert_date)
+        cdate.show()
+        self.menu.append(cdate)
 
         sep1 = Gtk.SeparatorMenuItem()
         sep1.show()
         self.menu.append(sep1)
+        
+        # Append the actual routine here
         self.add_dy_menu()
         
         # this is for exiting the app
@@ -51,26 +75,42 @@ class LoadShedding:
         item.set_label("Exit")
         item.connect("activate", self.handler_menu_exit)
         item.show()
+        
         self.menu.append(item)
         self.menu.show()
         self.ind.set_title("Menu title")
         self.ind.set_menu(self.menu)
         
-    ''' Adds the dynamic menu generated from xml '''    
+        m_childrens = self.menu.get_children()
+        print 'length '+ str(len(m_childrens))
+        pos = 0;
+        for c in m_childrens:
+            pos+=1
+            if(pos in [5,6,7]) and (len(m_childrens)>9):
+                self.menu.remove(c)
+                c.destroy()
+        
+    def window_convert_date(self,evt):
+        cd = ConverterWindow()
+        cd.show_all()
+            
     def add_dy_menu(self):
+        ''' Adds the dynamic menu generated from xml '''
 #         now = datetime.datetime.now()
 #         labelDay = now.strftime("%Y-%m-%d")+" ("+ now.strftime("%A")+")"
         np_date_converter = NepaliDateConverter()
         np_date = np_date_converter.contents_func()
         curDate = Gtk.MenuItem(label=np_date)
         curDate.show()
+        
         self.menu.append(curDate)
 
         if(self.parse_xml()):
             for items in self.routines:                
-                item = Gtk.MenuItem(label=items)
-                item.show()
-                self.menu.append(item)
+                itema = Gtk.MenuItem(label=items)
+                itema.show()
+                self.menu.append(itema)
+                itema = None
                 
     def get_group_number(self):
         configs = json.load(open("config.txt"))
@@ -117,9 +157,9 @@ class LoadShedding:
         pref.show_all()
         
     def on_pref_close(self,evt,data=None):
-        print 'reloading menu'
-        group_number = data
-        self.reload_menu()
+        #print 'reloading menu'
+        #Reload the menu
+        self.rebuild_menu()
         
     def main(self):
         Gtk.main()
