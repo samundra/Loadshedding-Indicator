@@ -1,0 +1,3 @@
+[submodule "batti"]
+	path = batti
+	url = git://github.com/foss-np/batti.git
