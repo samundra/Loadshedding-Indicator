@@ -15,7 +15,7 @@ To generate the latest `routine.xml` [batti] is must.
 ```
 
 #### For Issues
-- For feature request and issues please use github issues tracker [new_issue][new_issue_link]
+- For feature request and issues please use github issues tracker [new_issue][new_issue]
 
 Currently there is no option for updating to the latest load-shedding routine, one has to manually update routine using 
 [batti].
