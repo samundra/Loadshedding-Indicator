@@ -16,7 +16,7 @@ $ cd batti
 $ git submodule init
 $ git submodule update
 ```
-Since, [batti] is used as submodule, and [batti] has [2utf8] as submodule, we are asking git to update all the submodule so can work on them localy. 
+Since, [batti] is used as submodule, and [batti] has [2utf8] as submodule, we are asking git to update all the submodule so can work on them locally. 
 
 Now, we have to generate `routine.xml`. For the moment being this has to be done manually. It's easy. cd into [batti] then issue the below command.
 ```bash
@@ -60,3 +60,4 @@ Currently there is no option for updating to the latest load-shedding routine, o
 [batti]:https://github.com/foss-np/batti
 [new_issue]:https://github.com/samundra/Nep_Loadshedding_Py3/issues/new
 [nea]:http://www.nea.org.np/loadshedding.html
+[2utf8]:https://github.com/foss-np/2utf8
