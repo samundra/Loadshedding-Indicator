@@ -106,7 +106,7 @@ class ConverterWindow(Gtk.Window):
             bs2ad = False
             self.txtEntry.set_text(str(self.c_en_date(cnv_en_date)))
 
-win = ConverterWindow()
-win.connect("delete-event", Gtk.main_quit)
-win.show_all()
-Gtk.main()    
+# win = ConverterWindow()
+# win.connect("delete-event", Gtk.main_quit)
+# win.show_all()
+# Gtk.main()    
