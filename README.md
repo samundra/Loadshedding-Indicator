@@ -6,15 +6,23 @@ Thanks to [rohit][rhoit] for the `routine.xml`. This package makes use of [batti
 
 To generate the latest `routine.xml` [batti] is must.
 
+### Screenshots
+**Menu of Unity Loadshedding indicator**<br/>
+![Menu of Unity Loadshedding indicator](http://i76.photobucket.com/albums/j5/alexshr/NepalLoadsheddingIndicator_zpsf696cd02.png)
+
+**Date Converter (Work in progress)**<br/>
+![Date Converter](http://i76.photobucket.com/albums/j5/alexshr/convertwindow_zpsfc39b116.png)
+
+**Preference for Loadshedding**<br/>
+![Preference window](http://i76.photobucket.com/albums/j5/alexshr/preferencewindow_zpsfb94dfd0.png)
+
 ### Cloning Project
 ```bash
 $ git clone https://github.com/samundra/Nep_Loadshedding_Py3.git
 $ cd Nep_Loadshedding_Py3
-$ git submodule init
-$ git submodule update
+$ git submodule update --init
 $ cd batti
-$ git submodule init
-$ git submodule update
+$ git submodule update --init
 ```
 Since, [batti] is used as submodule, and [batti] has [2utf8] as submodule, we are asking git to update all the submodule so can work on them locally. 
 
@@ -39,7 +47,7 @@ When we are running [batti] for the first time, It will download the latest rout
 #### For Issues
 - For feature request and issues please use github issues tracker [new_issue][new_issue]
 
-Currently there is no option for updating to the latest load-shedding routine, one has to manually update routine using 
+Currently there is no option for updating to the latest load-shedding routine, one has to manually update `routine.xml` using 
 [batti].
 
 - Go to the batti sub-folder, and issue the following command
@@ -47,12 +55,12 @@ Currently there is no option for updating to the latest load-shedding routine, o
 ```bash
 
    $ cd batti
-   $ ./main.sh -x > routine.xml
+   $ ./main.sh -x > ../routine.xml
 ```
 
-- Replace the old routine.xml with newly generated routine.xml and restart the unity indicator.
+- Replace the old `routine.xml` with newly generated `routine.xml` and restart the unity indicator.
 
-* There is still issue in the preference, when preference is saved, there is duplicate preference in the menu.
+* There is still issue in the preference, when preference is saved, there is duplicate loadshedding routines in the menu.
 
 ### References
 [web]:https://github.com/samundra/Nep_Loadshedding_Py3
