@@ -309,7 +309,10 @@ class NepaliDateConverter:
             
         return s
     
-    
+    def today_en_date(self):
+        nw = datetime.datetime.now()
+        return "(%s, %s, %s)" %(nw.year,nw.month,nw.day)
+        
     def contents_func(self):
         converter = NepaliDateConverter()
         now = datetime.datetime.now()

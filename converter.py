@@ -13,7 +13,8 @@ from ast import literal_eval
 
 class ConverterWindow(Gtk.Window):
     ndc = NepaliDateConverter()
-    
+    bs2ad = True
+    ad2bs = False
     def __init__(self):
         Gtk.Window.__init__(self, title="Convert date")
         self.set_resizable(False)
@@ -22,39 +23,41 @@ class ConverterWindow(Gtk.Window):
         self.add(table)
 
         #saved_group_value = "2070-02-10"
-        self.group_number = 3
+        #self.group_number = 3
         
-        dd = '(2070,03,16)'
+        #dd = '(2070,03,16)'
+        dd = str(self.ndc.today_en_date())
         
-        self.txtEntry = Gtk.Entry()
-        self.txtEntry.set_name('txt_cnv_date')
-        self.txtEntry.set_text("")
+        self.txtNpDateField = Gtk.Entry()
+        self.txtNpDateField.set_name('txt_np_date')
+        self.txtNpDateField.set_text("")
         
-        self.txtConv = Gtk.Entry()
-        self.txtConv.set_name('txt_cnv_final_date')
-        self.txtConv.set_text("")
+        self.txtEnDateField = Gtk.Entry()
+        self.txtEnDateField.set_name('txt_en_date')
+        self.txtEnDateField.set_text(dd)
         
         #BS2AD or AD2BS Choices
         btnBs2Ad = Gtk.RadioButton.new_with_label_from_widget(None, "BS2AD")
-        btnBs2Ad.connect("toggled", self.on_button_toggled, "1")
+        btnBs2Ad.connect("toggled", self.on_button_toggled, "nep_to_en")
         
         btnAd2Bs = Gtk.RadioButton.new_from_widget(btnBs2Ad)
         btnAd2Bs.set_label("AD to BS")
-        btnAd2Bs.connect("toggled", self.on_button_toggled, "2")
+        btnAd2Bs.connect("toggled", self.on_button_toggled, "en_to_nep")
+        btnAd2Bs.set_active(True)
         
         btnClose = Gtk.Button(label="Close",name='close')
         btnClose.connect("clicked", self.on_btn_close)
         
-        btnSave = Gtk.Button(label="Save",name='Convert')
-        btnSave.connect("clicked", self.on_btn_save)
+        btnSave = Gtk.Button(label="Convert",name='Convert')
+        btnSave.connect("clicked", self.on_btn_convert)
         
         #label
         table.attach(Gtk.Label('B.S. :'),0,1,0,1)
         #entry
-        table.attach(self.txtEntry,1,2,0,1)
+        table.attach(self.txtNpDateField,1,2,0,1)
         
         table.attach(Gtk.Label('A.D. :'),0,1,1,2)
-        table.attach(self.txtConv,1,2,1,2)
+        table.attach(self.txtEnDateField,1,2,1,2)
         
         #Convert Dates Choices
         table.attach(btnBs2Ad,0,1,2,3)
@@ -66,22 +69,22 @@ class ConverterWindow(Gtk.Window):
         table.attach(btnSave,1,2,3,4)
         
     def on_button_toggled(self, button, name):
-        if(name=="1"):
-            cnv_np_date = literal_eval(self.txtEntry.get_text())
-            bs2ad = True
-            ad2bs = False
-            self.txtConv.set_text(str(self.c_np_date(cnv_np_date)))
-        if(name=="2"):
-            cnv_en_date = literal_eval(self.txtConv.get_text())
-            ad2bs = True
-            bs2ad = False
-            self.txtEntry.set_text(str(self.c_en_date(cnv_en_date)))
+        if(name=="nep_to_en"):
+            cnv_np_date = literal_eval(self.txtNpDateField.get_text())
+            self.bs2ad = True
+            self.ad2bs = False
+            self.txtEnDateField.set_text(str(self.c_np_date(cnv_np_date)))
+        if(name=="en_to_nep"):
+            cnv_en_date = literal_eval(self.txtEnDateField.get_text())
+            self.ad2bs = True
+            self.bs2ad = False
+            self.txtNpDateField.set_text(str(self.c_en_date(cnv_en_date)))
             
         if button.get_active():
             state = "on"
         else:
             state = "off"
-        print "Button", name, "was turned", state
+        #print "Button", name, "was turned", state
     
     def on_btn_close(self,w):
         #print int(self.group_number)
@@ -94,17 +97,13 @@ class ConverterWindow(Gtk.Window):
     def c_en_date(self,dd):
         return self.ndc.ad2bs(dd)
     
-    def on_btn_save(self,widget):
-        if(name=="1"):
-            cnv_np_date = literal_eval(self.txtEntry.get_text())
-            bs2ad = True
-            ad2bs = False
-            self.txtConv.set_text(str(self.c_np_date(cnv_np_date)))
-        if(name=="2"):
-            cnv_en_date = literal_eval(self.txtConv.get_text())
-            ad2bs = True
-            bs2ad = False
-            self.txtEntry.set_text(str(self.c_en_date(cnv_en_date)))
+    def on_btn_convert(self,widget):
+        if(self.bs2ad== True):
+            cnv_np_date = literal_eval(self.txtNpDateField.get_text())
+            self.txtEnDateField.set_text(str(self.c_np_date(cnv_np_date)))
+        if(self.ad2bs==True):
+            cnv_en_date = literal_eval(self.txtEnDateField.get_text())
+            self.txtNpDateField.set_text(str(self.c_en_date(cnv_en_date)))
 
 # win = ConverterWindow()
 # win.connect("delete-event", Gtk.main_quit)

@@ -49,9 +49,9 @@ class PreferenceWindow(Gtk.Window):
         
         self.group_number = saved_group_value
         
-        self.txtEntry = Gtk.Entry()
-        self.txtEntry.set_name('group_number')
-        self.txtEntry.set_text(saved_group_value)
+        self.txtNpDateField = Gtk.Entry()
+        self.txtNpDateField.set_name('group_number')
+        self.txtNpDateField.set_text(saved_group_value)
         
         btnClose = Gtk.Button(label="Close",name='close')
         btnClose.connect("clicked", self.on_btn_close)
@@ -62,7 +62,7 @@ class PreferenceWindow(Gtk.Window):
         #label
         table.attach(label,0,1,0,1)
         #entry
-        table.attach(self.txtEntry,1,2,0,1)
+        table.attach(self.txtNpDateField,1,2,0,1)
         #close button
         table.attach(btnClose,0,1,1,2)
         #save button
@@ -83,9 +83,9 @@ class PreferenceWindow(Gtk.Window):
         self.destroy()
         
     def on_btn_save(self,widget):
-        self.group_number = self.txtEntry.get_text()
-        update_string = "Group saved succcessfully to "+self.txtEntry.get_text()
-        self.save_configs("GROUP", self.txtEntry.get_text())
+        self.group_number = self.txtNpDateField.get_text()
+        update_string = "Group saved succcessfully to "+self.txtNpDateField.get_text()
+        self.save_configs("GROUP", self.txtNpDateField.get_text())
         if(self.notify==None):
             self.notify = Notify.Notification.new("Nepal Loadshedding",update_string,None)
         self.notify.update("Nepal Loadshedding",update_string,None)
