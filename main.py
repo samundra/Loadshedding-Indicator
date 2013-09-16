@@ -12,6 +12,7 @@ from converter import ConverterWindow
 import datetime
 import json
 from xml.dom.minidom import parseString
+import subprocess
  
 class LoadShedding:
     ind = None
@@ -106,7 +107,11 @@ class LoadShedding:
                 c.destroy()
         
     def update_schedule(self,evt):
-        print "update scheudle"
+        upd_string = 'cd batti && ./main.sh -u && ./main.sh -x > ../t.xml'
+#         upd_sch = subprocess.Popen(upd_string, shell=True)
+        process = subprocess.Popen(upd_string, shell=True, stdout=subprocess.PIPE)
+        print process.communicate()
+#         print "update scheudle"
         
     def window_convert_date(self,evt):
         cd = ConverterWindow()
