@@ -72,14 +72,29 @@ class LoadShedding:
         self.menu.append(sep2)
         
         item = Gtk.MenuItem()
+        item.set_label("Update Schedule")
+        item.connect("activate", self.update_schedule)
+        item.show()
+        
+        self.menu.append(item)
+        self.menu.show()
+        
+        # this is for exiting the app
+        sep3 = Gtk.SeparatorMenuItem()
+        sep3.show()
+        self.menu.append(sep3)
+        
+        item = Gtk.MenuItem()
         item.set_label("Exit")
         item.connect("activate", self.handler_menu_exit)
         item.show()
         
         self.menu.append(item)
         self.menu.show()
+        
         self.ind.set_title("Menu title")
         self.ind.set_menu(self.menu)
+        
         
         m_childrens = self.menu.get_children()
         print 'length '+ str(len(m_childrens))
@@ -89,6 +104,9 @@ class LoadShedding:
             if(pos in [5,6,7]) and (len(m_childrens)>9):
                 self.menu.remove(c)
                 c.destroy()
+        
+    def update_schedule(self,evt):
+        print "update scheudle"
         
     def window_convert_date(self,evt):
         cd = ConverterWindow()
