@@ -7,13 +7,13 @@ Thanks to [rohit][rhoit] for the `routine.xml`. This package makes use of [batti
 To generate the latest `routine.xml` [batti] is must.
 
 ### Screenshots
-**Menu of Unity Loadshedding indicator**<br/>
+**Menu of Unity Loadshedding indicator**
 ![Menu of Unity Loadshedding indicator](http://i76.photobucket.com/albums/j5/alexshr/NepalLoadsheddingIndicator_zpsf696cd02.png)
 
-**Date Converter (WIP)**<br/>
+**Date Converter (WIP)**
 ![Date Converter](http://i76.photobucket.com/albums/j5/alexshr/convertwindow_zpsfc39b116.png)
 
-**Preference for Loadshedding**<br/>
+**Preference for Loadshedding**
 ![Preference window](http://i76.photobucket.com/albums/j5/alexshr/preferencewindow_zpsfb94dfd0.png)
 - Add multiple group to the menu list
 
@@ -25,9 +25,7 @@ $ git submodule update --init
 $ cd batti
 $ git submodule update --init
 ```
-Since, [batti] is used as submodule, and [batti] has [2utf8] as submodule, we are asking git to update all the submodule so can work on them locally. 
-
-Now, we have to generate `routine.xml`. For the moment being this has to be done manually. It's easy. cd into [batti] then issue the below command.
+Since, [batti] is used as submodule, and [batti] has [2utf8] as submodule, we are asking git to update all the submodule so can work on them locally. Now, we have to generate `routine.xml`. For the moment being this has to be done manually. It's easy. cd into [batti] then issue the below command.
 
 _Note: Always refer to [batti] documentation to have the latest information. There might be cases when instruction provided here may not work exactly and you might need to tweak here and there_
 
@@ -50,11 +48,13 @@ When we are running [batti] for the first time, It will download the latest rout
 ```
 
 #### For Issues
-- For feature request and issues please use github issues tracker [create_new_issue]
+- For feature request and issues please use github issues tracker [Create Issue][create_new_issue]
 
-Currently there is no option for updating to the latest load-shedding routine, one has to manually update `routine.xml` using 
+
+### Method 1- Generate routine.xml (recommended)
+
+Currently there is no option to update to latest load-shedding routine, it has to be done manually. To update `routine.xml` using 
 [batti].
-
 - Go to the batti sub-folder, and issue the following command
 
 ```bash
@@ -62,7 +62,8 @@ Currently there is no option for updating to the latest load-shedding routine, o
    $ cd batti
    $ ./main.sh -x > ../routine.xml
 ```
-#### Alternative method to generate routine.xml
+
+#### Method 2 - Alternative method 
 The latest updated code in batti now makes it easy to generate routine.xml. Batti now can be invoked from anywhere in the commandline. So, now we can use the below provided commands to generate the `routine.xml` file.
 ```bash
   
