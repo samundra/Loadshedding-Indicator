@@ -7,13 +7,13 @@ Thanks to [rohit][rhoit] for the `routine.xml`. This package makes use of [batti
 To generate the latest `routine.xml` [batti] is must.
 
 ### Screenshots
-**Menu of Unity Loadshedding indicator**
+**Menu of Unity Loadshedding indicator**<br/>
 ![Menu of Unity Loadshedding indicator](http://i76.photobucket.com/albums/j5/alexshr/NepalLoadsheddingIndicator_zpsf696cd02.png)
 
-**Date Converter (WIP)**
+**Date Converter (WIP)**<br/>
 ![Date Converter](http://i76.photobucket.com/albums/j5/alexshr/convertwindow_zpsfc39b116.png)
 
-**Preference for Loadshedding**
+**Preference for Loadshedding**<br/>
 ![Preference window](http://i76.photobucket.com/albums/j5/alexshr/preferencewindow_zpsfb94dfd0.png)
 - Add multiple group to the menu list
 
