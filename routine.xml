@@ -2,212 +2,261 @@
 <routine>
     <group name="1">
       <day name="sunday">
-        <item>06:00–07:30</item>
-        <item>14:00–16:00</item>
+        <item>07:00-14:00</item>
+        <item>17:00-23:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="monday">
-        <item>08:30–11:00</item>
-        <item>19:00–21:00</item>
+        <item>09:00-17:00</item>
+        <item>20:00-01:00</item>
+        <item>07:00-14:00</item>
       </day>
       <day name="tuesday">
-        <item>11:00–13:00</item>
-        <item>20:00–22:00</item>
+        <item>08:00-16:00</item>
+        <item>19:00-24:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="wednesday">
-        <item>10:00–12:00</item>
-        <item>19:30–21:30</item>
+        <item>05:00-11:00</item>
+        <item>14:00-21:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="thursday">
-        <item>13:00–14:00</item>
-        <item>21:00–22:30</item>
+        <item>06:00-13:00</item>
+        <item>16:00-22:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="friday">
-        <item>07:30–10:00</item>
-        <item>18:00–20:00</item>
+        <item>03:00-08:00</item>
+        <item>11:00-19:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="saturday">
-        <item>06:30–08:30</item>
-        <item>16:00–18:00</item>
+        <item>04:00-10:00</item>
+        <item>13:00-20:00</item>
+        <item>--:-----:--</item>
       </day>
     </group>
     <group name="2">
       <day name="sunday">
-        <item>06:30–08:30</item>
-        <item>16:00–18:00</item>
+        <item>04:00-10:00</item>
+        <item>13:00-20:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="monday">
-        <item>06:00–07:30</item>
-        <item>14:00–16:00</item>
+        <item>07:00-14:00</item>
+        <item>17:00-23:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="tuesday">
-        <item>08:30–11:00</item>
-        <item>19:00–21:00</item>
+        <item>09:00-17:00</item>
+        <item>20:00-01:00</item>
+        <item>07:00-14:00</item>
       </day>
       <day name="wednesday">
-        <item>11:00–13:00</item>
-        <item>20:00–22:00</item>
+        <item>08:00-16:00</item>
+        <item>19:00-24:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="thursday">
-        <item>10:00–12:00</item>
-        <item>19:30–21:30</item>
+        <item>05:00-11:00</item>
+        <item>14:00-21:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="friday">
-        <item>13:00–14:00</item>
-        <item>21:00–22:30</item>
+        <item>06:00-13:00</item>
+        <item>16:00-22:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="saturday">
-        <item>07:30–10:00</item>
-        <item>18:00–20:00</item>
+        <item>03:00-08:00</item>
+        <item>11:00-19:00</item>
+        <item>--:-----:--</item>
       </day>
     </group>
     <group name="3">
       <day name="sunday">
-        <item>07:30–10:00</item>
-        <item>18:00–20:00</item>
+        <item>03:00-08:00</item>
+        <item>11:00-19:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="monday">
-        <item>06:30–08:30</item>
-        <item>16:00–18:00</item>
+        <item>04:00-10:00</item>
+        <item>13:00-20:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="tuesday">
-        <item>06:00–07:30</item>
-        <item>14:00–16:00</item>
+        <item>07:00-14:00</item>
+        <item>17:00-23:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="wednesday">
-        <item>08:30–11:00</item>
-        <item>19:00–21:00</item>
+        <item>09:00-17:00</item>
+        <item>20:00-01:00</item>
+        <item>07:00-14:00</item>
       </day>
       <day name="thursday">
-        <item>11:00–13:00</item>
-        <item>20:00–22:00</item>
+        <item>08:00-16:00</item>
+        <item>19:00-24:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="friday">
-        <item>10:00–12:00</item>
-        <item>19:30–21:30</item>
+        <item>05:00-11:00</item>
+        <item>14:00-21:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="saturday">
-        <item>13:00–14:00</item>
-        <item>21:00–22:30</item>
+        <item>06:00-13:00</item>
+        <item>16:00-22:00</item>
+        <item>--:-----:--</item>
       </day>
     </group>
     <group name="4">
       <day name="sunday">
-        <item>13:00–14:00</item>
-        <item>21:00–22:30</item>
+        <item>06:00-13:00</item>
+        <item>16:00-22:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="monday">
-        <item>07:30–10:00</item>
-        <item>18:00–20:00</item>
+        <item>03:00-08:00</item>
+        <item>11:00-19:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="tuesday">
-        <item>06:30–08:30</item>
-        <item>16:00–18:00</item>
+        <item>04:00-10:00</item>
+        <item>13:00-20:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="wednesday">
-        <item>06:00–07:30</item>
-        <item>14:00–16:00</item>
+        <item>07:00-14:00</item>
+        <item>17:00-23:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="thursday">
-        <item>08:30–11:00</item>
-        <item>19:00–21:00</item>
+        <item>09:00-17:00</item>
+        <item>20:00-01:00</item>
+        <item>07:00-14:00</item>
       </day>
       <day name="friday">
-        <item>11:00–13:00</item>
-        <item>20:00–22:00</item>
+        <item>08:00-16:00</item>
+        <item>19:00-24:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="saturday">
-        <item>10:00–12:00</item>
-        <item>19:30–21:30</item>
+        <item>05:00-11:00</item>
+        <item>14:00-21:00</item>
+        <item>--:-----:--</item>
       </day>
     </group>
     <group name="5">
       <day name="sunday">
-        <item>10:00–12:00</item>
-        <item>19:30–21:30</item>
+        <item>05:00-11:00</item>
+        <item>14:00-21:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="monday">
-        <item>13:00–14:00</item>
-        <item>21:00–22:30</item>
+        <item>06:00-13:00</item>
+        <item>16:00-22:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="tuesday">
-        <item>07:30–10:00</item>
-        <item>18:00–20:00</item>
+        <item>03:00-08:00</item>
+        <item>11:00-19:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="wednesday">
-        <item>06:30–08:30</item>
-        <item>16:00–18:00</item>
+        <item>04:00-10:00</item>
+        <item>13:00-20:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="thursday">
-        <item>06:00–07:30</item>
-        <item>14:00–16:00</item>
+        <item>07:00-14:00</item>
+        <item>17:00-23:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="friday">
-        <item>08:30–11:00</item>
-        <item>19:00–21:00</item>
+        <item>09:00-17:00</item>
+        <item>20:00-01:00</item>
+        <item>07:00-14:00</item>
       </day>
       <day name="saturday">
-        <item>11:00–13:00</item>
-        <item>20:00–22:00</item>
+        <item>08:00-16:00</item>
+        <item>19:00-24:00</item>
+        <item>--:-----:--</item>
       </day>
     </group>
     <group name="6">
       <day name="sunday">
-        <item>11:00–13:00</item>
-        <item>20:00–22:00</item>
+        <item>08:00-16:00</item>
+        <item>19:00-24:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="monday">
-        <item>10:00–12:00</item>
-        <item>19:30–21:30</item>
+        <item>05:00-11:00</item>
+        <item>14:00-21:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="tuesday">
-        <item>13:00–14:00</item>
-        <item>21:00–22:30</item>
+        <item>06:00-13:00</item>
+        <item>16:00-22:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="wednesday">
-        <item>07:30–10:00</item>
-        <item>18:00–20:00</item>
+        <item>03:00-08:00</item>
+        <item>11:00-19:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="thursday">
-        <item>06:30–08:30</item>
-        <item>16:00–18:00</item>
+        <item>04:00-10:00</item>
+        <item>13:00-20:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="friday">
-        <item>06:00–07:30</item>
-        <item>14:00–16:00</item>
+        <item>07:00-14:00</item>
+        <item>17:00-23:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="saturday">
-        <item>08:30–11:00</item>
-        <item>19:00–21:00</item>
+        <item>09:00-17:00</item>
+        <item>20:00-01:00</item>
+        <item>07:00-14:00</item>
       </day>
     </group>
     <group name="7">
       <day name="sunday">
-        <item>08:30–11:00</item>
-        <item>19:00–21:00</item>
+        <item>09:00-17:00</item>
+        <item>20:00-01:00</item>
+        <item>07:00-14:00</item>
       </day>
       <day name="monday">
-        <item>11:00–13:00</item>
-        <item>20:00–22:00</item>
+        <item>08:00-16:00</item>
+        <item>19:00-24:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="tuesday">
-        <item>10:00–12:00</item>
-        <item>19:30–21:30</item>
+        <item>05:00-11:00</item>
+        <item>14:00-21:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="wednesday">
-        <item>13:00–14:00</item>
-        <item>21:00–22:30</item>
+        <item>06:00-13:00</item>
+        <item>16:00-22:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="thursday">
-        <item>07:30–10:00</item>
-        <item>18:00–20:00</item>
+        <item>03:00-08:00</item>
+        <item>11:00-19:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="friday">
-        <item>06:30–08:30</item>
-        <item>16:00–18:00</item>
+        <item>04:00-10:00</item>
+        <item>13:00-20:00</item>
+        <item>--:-----:--</item>
       </day>
       <day name="saturday">
-        <item>06:00–07:30</item>
-        <item>14:00–16:00</item>
+        <item>07:00-14:00</item>
+        <item>17:00-23:00</item>
+        <item>--:-----:--</item>
       </day>
     </group>
 </routine>

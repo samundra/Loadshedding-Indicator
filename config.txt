@@ -1,1 +1,1 @@
-{"INTERVAL": 2, "GROUP": 2}
+{"INTERVAL": 2, "GROUP": 7}
