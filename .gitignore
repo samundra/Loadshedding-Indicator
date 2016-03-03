@@ -1,4 +1,8 @@
 not_used
+# Ignore IDE files
 .project
 .pydevproject
 .idea
+
+# ignore python compiled files
+*.pyc
