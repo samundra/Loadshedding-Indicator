@@ -19,7 +19,7 @@ To generate the latest `routine.xml` [batti] is must.
 
 ### How to clone this project?
 ```bash
-$ git clone https://github.com/samundra/Nep_Loadshedding_Py3.git --recurisve
+$ git clone https://github.com/samundra/Nep_Loadshedding_Py3.git --recursive
 ```
 Since, [batti] is used as submodule, and [batti] has [2utf8] as submodule, we are asking git to update all the submodule so can work on them locally. Now, we have to generate `routine.xml`. For the moment being this has to be done manually. It's easy. cd into [batti] then issue the below command.
 
