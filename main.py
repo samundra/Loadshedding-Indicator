@@ -31,7 +31,7 @@ import signal
 
 import subprocess
 
-FILE_ROUTINE = "routine.xml"
+FILE_ROUTINE = "~/.cache/routine.xml"
 
 class LoadShedding:
     ind = None
@@ -162,7 +162,11 @@ class LoadShedding:
         ''' Parses the routine xml and keeps the routine in memory '''
         from xml.dom import minidom
 
-        src = os.path.expanduser(PWD + FILE_ROUTINE)
+        src = os.path.expanduser(FILE_ROUTINE)
+        if not os.path.isfile(src):
+            print("hello")
+            os.system('batti -u && batti -x > %s'%src)
+
         self.xmldoc = minidom.parse(src)
         itemlist = self.xmldoc.getElementsByTagName('group')
         self.routines.append("GROUP : " + str(MY_GROUP))
