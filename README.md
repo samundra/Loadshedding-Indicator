@@ -2,9 +2,8 @@
 
 Nepal Loadshedding Unity Indicator ported to py3.
 
-Thanks to [rohit][rhoit] for the `routine.xml`. This package makes use of [batti][batti] project.
-
-To generate the latest `routine.xml` [batti] is must.
+This package makes uses of [batti][batti] project, to fetch latest
+routine.
 
 ### Screenshots
 **Menu of Unity Loadshedding indicator**<br/>
@@ -18,50 +17,44 @@ To generate the latest `routine.xml` [batti] is must.
 - Add multiple group to the menu list
 
 ### How to clone this project?
-```bash
-$ git clone https://github.com/samundra/Nep_Loadshedding_Py3.git --recursive
-```
-Since, [batti] is used as submodule, and [batti] has [2utf8] as submodule, we are asking git to update all the submodule so can work on them locally. Now, we have to generate `routine.xml`. For the moment being this has to be done manually. It's easy. cd into [batti] then issue the below command.
-
-_Note: Always refer to [batti] documentation to have the latest information. There might be cases when instruction provided here may not work exactly and you might need to tweak here and there_
-
-#### Use batti to generate routine.xml
-Starting with v1.6 of batti, we can directly run `sudo make install` in the root of [batti] and it will install itself. Once [batti] has been installed we can run it directly from anywhere in the commandline. Please refer to it's documentation on installations. Once batti has been installed please use below commands to generate the `routine.xml` file.
-
-- Get to the folder where Nepal Loadshedding has been cloned. CD into the folder and use below command.
 
 ```bash
-$ batti -x > routine.xml
+   $ git clone https://github.com/samundra/Nep_Loadshedding_Py3.git --recursive
 ```
-**Note:** `routine.xml` should be placed in the root of the project.
- 
-When we are running [batti] for the first time, It will download the latest routine file from [nea][nea] website and extract the contents from it. 
+
+Starting with *v1.6* of [batti], can be install as the package.
+
+If you have not install batti separately use recusive to fetch [batti]
+as submodule, `routine.xml` to be generated done manually.
+
+_Note: for latest [batti] refer to its own documentation _
+
+#### maunally generate routine.xml
+
+- Get to the folder where Nepal Loadshedding has been cloned. open the
+  submodule.
+
+```bash
+   $ ./main.sh -x > ~/.cache/routine.xml
+```
+
+**Note:** `routine.xml` should be placed in user cache
+
+When we are running [batti] for the first time, It will download the
+latest routine file from [nea][nea] website and extract the contents
+from it.
 
 ### How to run unity indicator
 
 #### From command line
+
 ```bash
-    $ python main.py &
+   $ python main.py &
 ```
 
 #### For Issues
-- For feature request and issues please use github issues tracker [Create Issue][create_new_issue]
-
-
-### Method 1- Generate routine.xml (recommended)
-
-Currently there is no option to update to latest load-shedding routine, it has to be done manually. To update `routine.xml` using 
-[batti]. Simply get to the Nepal Loadshedding installation directory and regenerate routine.xml file.
-
-#### Method 2 - Alternative method 
-The latest updated code in batti now makes it easy to generate routine.xml. Batti now can be invoked from anywhere in the commandline. So, now we can use the below provided commands to generate the `routine.xml` file.
-
-```bash
-   $ batti -x > routine.xml
-```
-- Replace the old `routine.xml` with newly generated `routine.xml` and restart the unity indicator.
-
-* There is still issue in the preference, when preference is saved, there is duplicate loadshedding routines in the menu.
+- For feature request and issues please use github issues tracker
+  [Create Issue][create_new_issue]
 
 [web]:https://github.com/samundra/Nep_Loadshedding_Py3
 [rhoit]:https://github.com/rhoit
