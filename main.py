@@ -11,6 +11,7 @@ import os, sys
 
 __filepath__ = os.path.abspath(__file__)
 PWD = os.path.dirname(__filepath__) + '/'
+print(PWD)
 
 sys.path.append(PWD)
 
@@ -32,6 +33,7 @@ import signal
 import subprocess
 
 FILE_ROUTINE = "~/.cache/routine.xml"
+FILE_CONFIG  = "~/.cache/config.txt"
 
 class LoadShedding:
     ind = None
@@ -120,11 +122,11 @@ class LoadShedding:
                 c.destroy()
 
     def update_schedule(self, evt):
+        # TODO Rewrite this to update the schedule silently in the background
         upd_string = 'cd batti && ./main.sh -u && ./main.sh -x > ../t.xml'
         #         upd_sch = subprocess.Popen(upd_string, shell=True)
         process = subprocess.Popen(upd_string, shell=True, stdout=subprocess.PIPE)
         print process.communicate()
-
 
     def handler_convert_date(self, evt):
         cd = ConverterWindow()
@@ -150,7 +152,7 @@ class LoadShedding:
 
     def get_group_number(self):
         # TODO shift it to ~/.config/loadshedding
-        configs = json.load(open(PWD + "config.txt"))
+        configs = json.load(open(os.path.expanduser(FILE_CONFIG)))
         return configs['GROUP']
 
     def load_routine(self, widget):
@@ -164,7 +166,6 @@ class LoadShedding:
 
         src = os.path.expanduser(FILE_ROUTINE)
         if not os.path.isfile(src):
-            print("hello")
             os.system('batti -u && batti -x > %s'%src)
 
         self.xmldoc = minidom.parse(src)

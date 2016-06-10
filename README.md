@@ -21,7 +21,6 @@ routine.
 ```bash
    $ git clone https://github.com/samundra/Nep_Loadshedding_Py3.git --recursive
 ```
-
 Starting with *v1.6* of [batti], can be install as the package.
 
 If you have not install batti separately use recusive to fetch [batti]
@@ -43,6 +42,16 @@ _Note: for latest [batti] refer to its own documentation _
 When we are running [batti] for the first time, It will download the
 latest routine file from [nea][nea] website and extract the contents
 from it.
+
+### Installation
+
+- Clone the repo
+- cd into the project directory
+- execute `./configure`
+- execute `sudo make install`
+
+Now applicaiton can be run as `loadshedding`
+
 
 ### How to run unity indicator
 
