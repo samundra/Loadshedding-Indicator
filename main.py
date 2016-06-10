@@ -1,21 +1,37 @@
+#!/usr/bin/python2
+#^^^ not using env for process name
+
 '''
 Created on Jun 17, 2013
 
 @author: samundra
 '''
+
+import os, sys
+
+__filepath__ = os.path.abspath(__file__)
+PWD = os.path.dirname(__filepath__) + '/'
+
+sys.path.append(PWD)
+
+import gi
+gi.require_version('Gtk', '3.0')
+gi.require_version('AppIndicator3', '0.1')
+
 from gi.repository import Gtk
-# from gi.overrides.Gtk import Widget
-from nepali_calendar import NepaliDateConverter
 from gi.repository import AppIndicator3 as AppIndicator
+
+from nepali_calendar import NepaliDateConverter
 from preference import PreferenceWindow as preference_window
 from converter import ConverterWindow
+
 import datetime
 import json
 import signal
-import os
-# from xml.dom.minidom import parseString
+
 import subprocess
 
+FILE_ROUTINE = "routine.xml"
 
 class LoadShedding:
     ind = None
@@ -109,7 +125,6 @@ class LoadShedding:
         process = subprocess.Popen(upd_string, shell=True, stdout=subprocess.PIPE)
         print process.communicate()
 
-    #         print "update scheudle"
 
     def handler_convert_date(self, evt):
         cd = ConverterWindow()
@@ -134,7 +149,8 @@ class LoadShedding:
                 # itema = None
 
     def get_group_number(self):
-        configs = json.load(open("config.txt"))
+        # TODO shift it to ~/.config/loadshedding
+        configs = json.load(open(PWD + "config.txt"))
         return configs['GROUP']
 
     def load_routine(self, widget):
@@ -146,7 +162,8 @@ class LoadShedding:
         ''' Parses the routine xml and keeps the routine in memory '''
         from xml.dom import minidom
 
-        self.xmldoc = minidom.parse('routine.xml')
+        src = os.path.expanduser(PWD + FILE_ROUTINE)
+        self.xmldoc = minidom.parse(src)
         itemlist = self.xmldoc.getElementsByTagName('group')
         self.routines.append("GROUP : " + str(MY_GROUP))
         for s in itemlist:

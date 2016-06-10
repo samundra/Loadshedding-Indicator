@@ -1,11 +1,17 @@
-import sys
-import json
-from gi.repository import Gtk
-# from gi.overrides.Gtk import Widget
-from gi.repository import Notify
-from gi.repository import GObject
+#!/usr/bin/env python2
 
 ''' A preference window for Nepal Loadshedding application '''
+
+import sys
+import json
+
+import gi
+gi.require_version('Gtk', '3.0')
+gi.require_version('Notify', '0.7')
+
+from gi.repository import Gtk
+from gi.repository import Notify
+from gi.repository import GObject
 
 
 class PreferenceWindow(Gtk.Window):
@@ -65,21 +71,21 @@ class PreferenceWindow(Gtk.Window):
         table.attach(btn_close, 0, 1, 1, 2)
         # save button
         table.attach(btn_save, 1, 2, 1, 2)
-        
+
     def parse_configs(self):
         self.configs = json.load(open("config.txt"))
         return self.configs
-    
+
     def save_configs(self, key, value):
         self.configs[key] = int(value)
         json.dump(self.configs, open("config.txt", "wb"))
         return True
-                
+
     def on_btn_close(self, w):
         print int(self.group_number)
         self.emit("message_send", int(self.group_number))
         self.destroy()
-        
+
     def on_btn_save(self, widget):
         self.group_number = self.txt_np_date_field.get_text()
         update_string = "Group saved succcessfully to "+self.txt_np_date_field.get_text()
