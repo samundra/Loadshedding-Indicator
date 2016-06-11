@@ -1,0 +1,10 @@
+Package: loadshedding
+Version: 0.1
+Architecture: all
+Maintainer: Samundra Shrestha <samundra.shr@gmail.com>
+Installed-Size: 1
+Depends: bash, sed, poppler-utils, gtk3.0, appindicator
+Section: testing
+Priority: optional
+Homepage: https://github.com/samundra/Nep_Loadshedding_Py3
+Description: Loadshedding app indicator for panel

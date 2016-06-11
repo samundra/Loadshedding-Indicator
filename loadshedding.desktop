@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Loadshedding
+Comment=Ubuntu Loadshedding Applications
+Encoding=UTF-8
+Exec=loadshedding
+Icon=/opt/loadshedding/icon.png
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=Utility;
