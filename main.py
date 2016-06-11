@@ -1,5 +1,5 @@
 #!/usr/bin/python2
-#^^^ not using env for process name
+# ^^^ not using env for process name
 
 '''
 Created on Jun 17, 2013
@@ -7,17 +7,13 @@ Created on Jun 17, 2013
 @author: samundra
 '''
 
-import os, sys
-
-__filepath__ = os.path.abspath(__file__)
-PWD = os.path.dirname(__filepath__) + '/'
-print(PWD)
-
-sys.path.append(PWD)
-
 import gi
-gi.require_version('Gtk', '3.0')
-gi.require_version('AppIndicator3', '0.1')
+import os
+import sys
+import datetime
+import json
+import signal
+import subprocess
 
 from gi.repository import Gtk
 from gi.repository import AppIndicator3 as AppIndicator
@@ -26,14 +22,18 @@ from nepali_calendar import NepaliDateConverter
 from preference import PreferenceWindow as preference_window
 from converter import ConverterWindow
 
-import datetime
-import json
-import signal
+__filepath__ = os.path.abspath(__file__)
+PWD = os.path.dirname(__filepath__) + '/'
+print(PWD)
 
-import subprocess
+sys.path.append(PWD)
+
+gi.require_version('Gtk', '3.0')
+gi.require_version('AppIndicator3', '0.1')
 
 FILE_ROUTINE = "~/.cache/routine.xml"
-FILE_CONFIG  = "~/.cache/config.txt"
+FILE_CONFIG = "~/.cache/config.txt"
+
 
 class LoadShedding:
     ind = None
@@ -44,7 +44,8 @@ class LoadShedding:
         self.ind = AppIndicator.Indicator.new("loadshedding-routine",
                                               # "tray-message",
                                               os.path.abspath("icon.png"),
-                                              AppIndicator.IndicatorCategory.APPLICATION_STATUS)
+                                              AppIndicator.IndicatorCategory\
+                                              .APPLICATION_STATUS)
         self.ind.set_status(AppIndicator.IndicatorStatus.ACTIVE)
         self.ind.set_attention_icon("indicator-messages-new")
         # self.ind.connect("scroll-event", self.scroll)
@@ -52,7 +53,7 @@ class LoadShedding:
 
     def clear_menu_items(self):
         m_childrens = self.menu.get_children()
-        ppos = 0;
+        ppos = 0
         for c in m_childrens:
             ppos += 1
             if (ppos in [5, 6, 7]):
@@ -114,7 +115,7 @@ class LoadShedding:
 
         m_childrens = self.menu.get_children()
         print 'length ' + str(len(m_childrens))
-        pos = 0;
+        pos = 0
         for c in m_childrens:
             pos += 1
             if (pos in [5, 6, 7]) and (len(m_childrens) > 9):
@@ -124,8 +125,11 @@ class LoadShedding:
     def update_schedule(self, evt):
         # TODO Rewrite this to update the schedule silently in the background
         upd_string = 'cd batti && ./main.sh -u && ./main.sh -x > ../t.xml'
-        #         upd_sch = subprocess.Popen(upd_string, shell=True)
-        process = subprocess.Popen(upd_string, shell=True, stdout=subprocess.PIPE)
+        process = subprocess.Popen(
+            upd_string,
+            shell=True,
+            stdout=subprocess.PIPE
+        )
         print process.communicate()
 
     def handler_convert_date(self, evt):
@@ -134,8 +138,6 @@ class LoadShedding:
 
     def add_dy_menu(self):
         """ Adds the dynamic menu generated from xml """
-        #         now = datetime.datetime.now()
-        #         labelDay = now.strftime("%Y-%m-%d")+" ("+ now.strftime("%A")+")"
         np_date_converter = NepaliDateConverter()
         np_date = np_date_converter.contents_func()
         curDate = Gtk.MenuItem(label=np_date)
@@ -152,7 +154,14 @@ class LoadShedding:
 
     def get_group_number(self):
         # TODO shift it to ~/.config/loadshedding
-        configs = json.load(open(os.path.expanduser(FILE_CONFIG)))
+        # User config path
+        config_filepath = os.path.expanduser(FILE_CONFIG)
+        # Fallback to default config.txt
+
+        if os.path.isfile(config_filepath) is False:
+            config_filepath = PWD + "config.txt"
+
+        configs = json.load(open(config_filepath))
         return configs['GROUP']
 
     def load_routine(self, widget):
@@ -166,7 +175,7 @@ class LoadShedding:
 
         src = os.path.expanduser(FILE_ROUTINE)
         if not os.path.isfile(src):
-            os.system('batti -u && batti -x > %s'%src)
+            os.system('batti -u && batti -x > %s' % src)
 
         self.xmldoc = minidom.parse(src)
         itemlist = self.xmldoc.getElementsByTagName('group')
@@ -185,8 +194,12 @@ class LoadShedding:
                     currDay = now.strftime("%A").lower()
 
                     if (currDay == dayName):
-                        self.routines.append(dt.childNodes[1].firstChild.nodeValue)
-                        self.routines.append(dt.childNodes[3].firstChild.nodeValue)
+                        self.routines.append(
+                            dt.childNodes[1].firstChild.nodeValue
+                        )
+                        self.routines.append(
+                            dt.childNodes[3].firstChild.nodeValue
+                        )
                         return True
         return False
 
@@ -213,5 +226,3 @@ class LoadShedding:
 if __name__ == "__main__":
     lshd = LoadShedding()
     lshd.main()
-
-# LoadShedding.main()
